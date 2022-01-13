@@ -51,6 +51,8 @@ def executeInput(userInput):
 		pygame.mixer.music.play()
 	elif userInput == "exit":
 		sys.exit()
+	else:
+		print("Please enter a valid command.")
 
 def main():
 	# root.mainloop()
