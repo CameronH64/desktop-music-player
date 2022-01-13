@@ -46,13 +46,37 @@ def playPauseButtonClicked():
 
 
 def executeInput(userInput):
+
 	if userInput == "play":
-		print("You pressed play.")
+		print("Playing audio...")
 		pygame.mixer.music.play()
+
 	elif userInput == "exit":
 		sys.exit()
+
+	elif userInput == "pause":
+		pygame.mixer.music.pause()
+
+	elif userInput == "unpause":
+		pygame.mixer.music.unpause()
+
+	elif userInput == "next":
+		print("You pressed next.")
+
+	elif userInput == "prev":
+		print("You pressed prev.")
+
+	elif userInput == "vup":
+		pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() + .1)
+		print(pygame.mixer.music.get_volume())
+
+	elif userInput == "vdn":
+		pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() - .1)
+		print(pygame.mixer.music.get_volume())
+
 	else:
 		print("Please enter a valid command.")
+
 
 def main():
 	# root.mainloop()
@@ -60,6 +84,7 @@ def main():
 	print("Program start.")
 
 	pygame.mixer.init()
+	# Use for loops and lists for this part.
 	pygame.mixer.music.load("testingFiles/lon.mp3")
 	pygame.mixer.music.set_volume(0.5)
 
