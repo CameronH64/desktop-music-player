@@ -15,6 +15,7 @@ root.title("Music Player")
 def playPauseButtonClicked():
 	print("Play/Pause button clicked.")
 
+
 # def createGUIElements():
 #
 # 	playButtonImage = PhotoImage(file='assets/play.png')
@@ -52,6 +53,7 @@ def executeInput(userInput):
 		pygame.mixer.music.play()
 
 	elif userInput == "exit":
+		pygame.mixer.quit()
 		sys.exit()
 
 	elif userInput == "pause":
@@ -66,13 +68,11 @@ def executeInput(userInput):
 	elif userInput == "prev":
 		print("You pressed prev.")
 
-	elif userInput == "vup":
+	elif userInput == "up":
 		pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() + .1)
-		print(pygame.mixer.music.get_volume())
 
-	elif userInput == "vdn":
+	elif userInput == "dn":
 		pygame.mixer.music.set_volume(pygame.mixer.music.get_volume() - .1)
-		print(pygame.mixer.music.get_volume())
 
 	else:
 		print("Please enter a valid command.")
@@ -85,8 +85,12 @@ def main():
 
 	pygame.mixer.init()
 	# Use for loops and lists for this part.
-	pygame.mixer.music.load("testingFiles/lon.mp3")
+	pygame.mixer.music.load("testingFiles/wii.mp3")
 	pygame.mixer.music.set_volume(0.5)
+
+	# Trying to figure out how to queue songs.
+	songs = os.listdir("C:/Users/Cameron/PycharmProjects/desktop-music-player/testingFiles")
+	print(songs)
 
 	while programRunning:
 		userInput = input("Enter a command: ")
